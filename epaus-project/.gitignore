@@ -1,0 +1,10 @@
+# Ignore Maven compiled output folders
+target/
+*/target/
+
+# Ignore IntelliJ local workspace settings
+.idea/workspace.xml
+*.iml
+
+# Ignore Mac system files
+.DS_Store

@@ -23,8 +23,33 @@ SOFTWARE.
 */
 package isel.sisinf.jpa;
 
-public class Dal
-{
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class Dal implements AutoCloseable {
+
+    private EntityManagerFactory emf;
+    private EntityManager em;
+
+    public Dal() {
+        this.emf = Persistence.createEntityManagerFactory("epaus");
+        this.em = emf.createEntityManager();
+    }
+
+    public EntityManager getEntityManager() {
+        return em;
+    }
+
+    @Override
+    public void close() {
+        if (em != null && em.isOpen()) {
+            em.close();
+        }
+        if (emf != null && emf.isOpen()) {
+            emf.close();
+        }
+    }
     //For Demonstration purposes only
     public static String version(){ return "1.0";}
 }
