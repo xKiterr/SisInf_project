@@ -1,6 +1,11 @@
 # Ignore Maven compiled output folders
 target/
-*/target/
+epaus-project/app/target/
+
+**/target/
+*.class
+*.jar
+*.lst
 
 # Ignore IntelliJ local workspace settings
 .idea/workspace.xml
